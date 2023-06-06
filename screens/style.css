@@ -1,0 +1,13 @@
+.chart1{
+    background-color: lightgray;
+    border-color: black;
+    border-style: double;
+    border-radius: 15px;
+}
+.chart2{
+    background-color: rgb(217, 220, 222);
+    border-color: black;
+    border-style: double;
+    border-radius: 15px;
+}
+  

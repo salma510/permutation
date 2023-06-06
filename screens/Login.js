@@ -63,17 +63,17 @@ export default function Login({ navigation, setUser }) {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
-      <Image
+      {/* <Image
         style={styles.myLogo}
         source={{
           uri: "https://raw.githubusercontent.com/hirishu10/my-assets/main/top_log.png",
         }}
-      />
-      <Text style={styles.header}>react-native-login-register-ui</Text>
+      /> */}
+      <Text style={styles.header}>Permutations</Text>
       <Image
         style={styles.loginImage}
         source={{
-          uri: "https://raw.githubusercontent.com/hirishu10/my-assets/main/login.png",
+          uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC1aGLb5RBG9bMVWkkv65FmBZ7PSRgCVTpAg&usqp=CAU",
         }}
       />
       {getError ? (

@@ -201,17 +201,12 @@ export default function Register({ navigation }) {
       <StatusBar barStyle="light-content" />
       <ScrollView style={{ paddingTop: 20 }}>
         <View style={styles.container}>
-          <Image
-            style={styles.myLogo}
-            source={{
-              uri: "https://raw.githubusercontent.com/hirishu10/my-assets/main/top_log.png",
-            }}
-          />
+         
           <Text style={styles.header}>Create Account for Free!</Text>
           <Image
             style={styles.registerImage}
             source={{
-              uri: "https://raw.githubusercontent.com/hirishu10/my-assets/main/register.png",
+              uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTcr_VOeGX4BsWaKVNjaUaLo5BWZPeusKvLQ&usqp=CAU",
             }}
           />
           {getError ? (
@@ -652,7 +647,7 @@ const styles = StyleSheet.create({
   },
   registerbtn: {
     marginTop: 10,
-    backgroundColor: "#e65c40",
+    backgroundColor: "blue",
     width: 300,
     height: 50,
     borderRadius: 40,

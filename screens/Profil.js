@@ -178,17 +178,12 @@ export default function Profil({ navigation, user }) {
       <StatusBar barStyle="light-content" />
       <ScrollView style={{ paddingTop: 20 }}>
         <View style={styles.container}>
-          <Image
-            style={styles.myLogo}
-            source={{
-              uri: "https://raw.githubusercontent.com/hirishu10/my-assets/main/top_log.png",
-            }}
-          />
-          <Text style={styles.header}>Create Account for Free!</Text>
+          
+          <Text style={styles.header}>Informations about your profil</Text>
           <Image
             style={styles.registerImage}
             source={{
-              uri: "https://raw.githubusercontent.com/hirishu10/my-assets/main/register.png",
+              uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkDVDRhcwX5vFbA3CJlA1-tyf_2VOG2FwG7w&usqp=CAU",
             }}
           />
           {getError ? (
@@ -567,7 +562,7 @@ const styles = StyleSheet.create({
   dropdown: {
     height: 50,
     backgroundColor: "transparent",
-    borderBottomColor: "gray",
+    borderBottomColor: "blue",
     borderBottomWidth: 0.5,
     width: 300,
     marginBottom: 35,
@@ -640,7 +635,7 @@ const styles = StyleSheet.create({
   },
   registerbtn: {
     marginTop: 10,
-    backgroundColor: "#e65c40",
+    backgroundColor: "blue",
     width: 300,
     height: 50,
     borderRadius: 40,

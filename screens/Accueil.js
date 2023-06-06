@@ -72,11 +72,31 @@ const Accueil = () => {
     <html>
       <head>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      </head>
+        <style>
+          .chart1{
+            background-color: lightgrey;
+            border-color: black;
+            border-style: solid;
+            border-radius: 15px;
+          }
+          .chart2{
+            background-color: rgb(177, 12, 12);
+            border-color: black;
+            border-style: double;
+            border-radius: 15px;
+        }
+          
+        </style>
+        <Text></Text>
+        <Text></Text>
+
+              </head>
       <body>
-        <canvas id="chart1"></canvas>
+      <canvas id="chart3"></canvas>
+      <div class="chart1"><canvas id="chart1"></canvas></div>
+      <div class="chart2"><canvas id="chart2"></canvas></div>
         <canvas id="chart2"></canvas>
-        <canvas id="chart3"></canvas>
+        
         <script>
           const ctx1 = document.getElementById('chart1').getContext('2d');
           const ctx2 = document.getElementById('chart2').getContext('2d');

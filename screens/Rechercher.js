@@ -69,6 +69,30 @@ export default function Rechercher() {
     }));
   }, [professeurs]);
 
+  const renderListItem = (item) => {
+    return (
+      <View style={styles.listItem}>
+        <Text>
+          <Text style={styles.bulletPoint}>• </Text>
+          {item.nom} {item.prenom}
+          {" ("}
+          {item.email}
+          {" | "}
+          {item.tel}
+          {" | "}
+          {item.grade}
+          {" - "}
+          {item.specialite}
+          {" - ("}
+          {item.faculteActuelle}
+          {" | "}
+          {item.villeFaculteActuelle}
+          {")---->"}
+          {item.villeDesiree}
+        </Text>
+      </View>
+    );
+  };
   const _renderItem = (item) => {
     return (
       <View style={styles.item}>
@@ -95,20 +119,41 @@ export default function Rechercher() {
     setSelectedVilleDesiree(initialVilleDesiree);
   };
 
-  const filteredProfesseurs = useMemo(() => {
-    // Vérifier si des filtres sont sélectionnés
-    if (
-      !selectedSpecialite &&
-      !selectedVilleActuelle &&
-      !selectedVilleDesiree
-    ) {
-      // Aucun filtre sélectionné, retourner tous les professeurs
-      return professeurs;
-    }
+  // const filteredProfesseurs = useMemo(() => {
+  //   // Vérifier si des filtres sont sélectionnés
+  //   if (
+  //     !selectedSpecialite &&
+  //     !selectedVilleActuelle &&
+  //     !selectedVilleDesiree
+  //   ) {
+  //     // Aucun filtre sélectionné, retourner tous les professeurs
+  //     return professeurs;
+  //   }
 
+  //   // Filtrer les professeurs en fonction des filtres sélectionnés
+  //   return professeurs.filter((professeur) => {
+  //     // Vérifier chaque filtre et retourner true si le professeur correspond au filtre
+  //     const matchSpecialite =
+  //       !selectedSpecialite || professeur.specialite === selectedSpecialite;
+  //     const matchVilleActuelle =
+  //       !selectedVilleActuelle ||
+  //       professeur.villeFaculteActuelle === selectedVilleActuelle;
+  //     const matchVilleDesiree =
+  //       !selectedVilleDesiree ||
+  //       professeur.villeDesiree.split(";").includes(selectedVilleDesiree);
+
+  //     return matchSpecialite && matchVilleActuelle && matchVilleDesiree;
+  //   });
+  // }, [
+  //   professeurs,
+  //   selectedSpecialite,
+  //   selectedVilleActuelle,
+  //   selectedVilleDesiree,
+  // ]);
+
+  const filteredProfesseurs = useMemo(() => {
     // Filtrer les professeurs en fonction des filtres sélectionnés
     return professeurs.filter((professeur) => {
-      // Vérifier chaque filtre et retourner true si le professeur correspond au filtre
       const matchSpecialite =
         !selectedSpecialite || professeur.specialite === selectedSpecialite;
       const matchVilleActuelle =
@@ -129,6 +174,9 @@ export default function Rechercher() {
 
   return (
     <View>
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>Rechercher</Text>
+      </View>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.container}>
           <Text style={styles.text}>Spécialité</Text>
@@ -143,7 +191,7 @@ export default function Rechercher() {
             label="Dropdown"
             placeholder="Toutes les spécialités"
             value={selectedSpecialite}
-            onChange={(item) => setSelectedSpecialite(item._id)}
+            onChange={(item) => setSelectedSpecialite(item.name)}
             renderLeftIcon={() => <Image style={styles.icon} />}
             renderItem={(item) => _renderItem(item)}
             textError="Error"
@@ -161,7 +209,7 @@ export default function Rechercher() {
             label="Dropdown"
             placeholder="Toutes les villes"
             value={selectedVilleActuelle}
-            onChange={(item) => setSelectedVilleActuelle(item._id)}
+            onChange={(item) => setSelectedVilleActuelle(item.name)}
             renderLeftIcon={() => <Image style={styles.icon} />}
             renderItem={(item) => _renderItem(item)}
             textError="Error"
@@ -179,7 +227,7 @@ export default function Rechercher() {
             label="Dropdown"
             placeholder="Toutes les villes"
             value={selectedVilleDesiree}
-            onChange={(item) => setSelectedVilleDesiree(item._id)}
+            onChange={(item) => setSelectedVilleDesiree(item.name)}
             renderLeftIcon={() => <Image style={styles.icon} />}
             renderItem={(item) => _renderItem(item)}
             textError="Error"
@@ -196,16 +244,9 @@ export default function Rechercher() {
             <Text style={styles.buttonText}>Réinitialiser</Text>
           </TouchableOpacity>
 
-          <Text style={styles.text}>Formations des Professeurs</Text>
+          <Text style={styles.text}>Résultats de la recherche</Text>
           {filteredProfesseurs.map((professeur) => (
-            <View key={professeur._id}>
-              <Text style={styles.professeurInfo}>
-                {professeur.nom} {professeur.prenom} ({professeur.email} |
-                {professeur.tel} | {professeur.grade}) - {professeur.specialite}
-                ({professeur.faculteActuelle} |{professeur.villeFaculteActuelle}
-                ){professeur.villeDesiree}
-              </Text>
-            </View>
+            <View key={professeur._id}>{renderListItem(professeur)}</View>
           ))}
         </View>
       </ScrollView>
@@ -221,6 +262,16 @@ const styles = StyleSheet.create({
     paddingLeft: 40,
     paddingRight: 40,
     paddingBottom: 30,
+  },
+  header: {
+    backgroundColor: "blue",
+    padding: 15,
+  },
+  headerTitle: {
+    color: "white",
+    fontSize: 25,
+    fontWeight: "900",
+    textAlign: "center",
   },
   dropdown: {
     backgroundColor: "white",
@@ -262,7 +313,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     width: 150,
     height: 40,
-    backgroundColor: "#2E86C1",
+    backgroundColor: "blue",
     borderRadius: 20,
     justifyContent: "center",
     alignItems: "center",
@@ -295,5 +346,15 @@ const styles = StyleSheet.create({
   },
   professeurInfo: {
     fontSize: 16,
+  },
+  listItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: 5,
+  },
+  bulletPoint: {
+    marginRight: 5,
+    fontSize: 12,
+    color: "black",
   },
 });
