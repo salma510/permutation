@@ -7,7 +7,7 @@ const About = () => {
       <Text style={styles.title}>
         Plateforme de Permutation pour Enseignants Universitaires
       </Text>
-      <Text>
+      <Text style={styles.text}>
         Cette plateforme est simplement un espace permettant aux professeurs
         universitaires de rechercher un partenaire pour une permutation. Elle se
         limite à cette fonctionnalité. Les enseignants peuvent rechercher des
@@ -16,7 +16,7 @@ const About = () => {
         correspondance entre les enseignants ayant une volonté mutuelle
         d'échanger.
       </Text>
-      <Text>
+      <Text style={styles.text}>
         La plateforme offre une interface conviviale et sécurisée aux
         enseignants pour communiquer et échanger les informations nécessaires.
         Les membres peuvent créer des profils personnels et renseigner des
@@ -25,7 +25,7 @@ const About = () => {
         des partenaires potentiels et entrer en contact avec eux pour discuter
         des détails de l'accord d'échange.
       </Text>
-      <Text>
+      <Text style={styles.text}>
         En utilisant cette plateforme, les enseignants peuvent faciliter leur
         recherche de partenaires d'échange, économiser du temps et des efforts
         en évitant les communications individuelles et les recherches continues
@@ -46,11 +46,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: 10,
   },
   text: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    textAlign: "center",
+    marginBottom: 10,
   },
 });
 

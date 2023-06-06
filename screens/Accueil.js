@@ -74,13 +74,13 @@ const Accueil = () => {
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <style>
           .chart1{
-            background-color: lightgrey;
+            background-color: #EBF7F7;
             border-color: black;
             border-style: solid;
             border-radius: 15px;
           }
           .chart2{
-            background-color: rgb(177, 12, 12);
+            background-color: #EBF7F7;
             border-color: black;
             border-style: double;
             border-radius: 15px;
